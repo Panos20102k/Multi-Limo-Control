@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <gazebo reference="base_link"> <!-- name of link -->
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="rear_right_wheel_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="rear_left_wheel_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="caster_wheel_link">
+        <material>Gazebo/Grey</material>
+        <mu1 value="0.1" />
+        <mu2 value="0.1" />
+    </gazebo> 
+
+    <xacro:macro name="diff_plugin" params="robot_name">
+
+        <gazebo>
+            <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+                <ros>
+                    <namespace>${robot_name}</namespace>
+			    </ros>
+                <!-- Update rate in Hz -->
+                <update_rate>50</update_rate>
+                <num_wheel_pairs>1</num_wheel_pairs>
+                <!-- wheels -->
+                <left_joint>base_rear_left_wheel_joint</left_joint>
+                <right_joint>base_rear_right_wheel_joint</right_joint>
+                <!-- kinematics -->
+                <wheel_separation>0.172</wheel_separation>
+
+                <wheel_diameter>0.1</wheel_diameter>
+                <!-- output -->
+                <publish_odom>true</publish_odom>
+                <publish_odom_tf>true</publish_odom_tf>
+                <publish_wheel_tf>false</publish_wheel_tf>
+
+                <odometry_frame>${robot_name}/odom</odometry_frame>
+                <robot_base_frame>${robot_name}/base_footprint</robot_base_frame>
+            </plugin>
+
+            <!-- https://github.com/ros-simulation/gazebo_ros_pkgs/blob/ros2/gazebo_plugins/include/gazebo_plugins/gazebo_ros_p3d.hpp -->
+            <plugin name="gazebo_ros_p3d" filename="libgazebo_ros_p3d.so">
+                <ros>
+                    <namespace>${robot_name}</namespace>
+                    <remapping>odom:=ground_truth</remapping>
+                </ros>
+                <update_rate>50</update_rate>
+                <body_name>base_footprint</body_name> 
+                <gaussian_noise>0.0</gaussian_noise> 
+                <xyz_offset>0 0 0</xyz_offset> 
+                <rpy_offset>0 0 0</rpy_offset> 
+            </plugin>
+        </gazebo>
+
+    </xacro:macro>
+
+</robot>

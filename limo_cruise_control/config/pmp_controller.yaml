@@ -1,0 +1,14 @@
+pmp_controller:
+  ros__parameters:
+    optimal_control_mode: False
+    stop_time: 15.0
+    zoh_period: 0.1
+    reference_velocity: 0.6
+    initial_velocity: 0.5
+    state_penalty_coefficient: 1.0
+    control_penalty_coefficient: 0.5
+    final_state_penalty_coefficient: 1.0
+    safety_distance: 1.0
+    reaction_time_coefficient: 1.0
+    lower_control_bound: 0.1
+    upper_control_bound: 0.4

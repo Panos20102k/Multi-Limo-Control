@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget name="Main Window" parent="main_window">
+  <Tab tab_name="path" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="XYPlot" flip_x="false">
+       <range top="0.010268" bottom="-0.420999" right="0.752286" left="-0.052342"/>
+       <limitY/>
+       <curve curve_y="/limo_1/odometry/filtered/pose/pose/position/y" curve_x="/limo_1/odometry/filtered/pose/pose/position/x" name="/limo_1/odometry/filtered/pose/pose/position/[x;y]" color="#1ac938"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="x" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.717460" bottom="-0.017517" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/odometry/filtered/pose/pose/position/x" color="#d62728"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[6]" color="#d62728"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[0]" color="#1ac938"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="y" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.010736" bottom="-0.440170" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/odometry/filtered/pose/pose/position/y" color="#f14cc1"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[7]" color="#9467bd"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[1]" color="#17becf"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="x_dot" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.387693" bottom="-0.143241" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/odometry/filtered/differentiated/vector/x" color="#bcbd22"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[2]" color="#1f77b4"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="y_dot" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.415574" bottom="-0.363435" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/odometry/filtered/differentiated/vector/y" color="#d62728"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[3]" color="#1ac938"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="x_dot_dot" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.315000" bottom="-0.315000" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[4]" color="#ff7f0e"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="y_dot_dot" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.194791" bottom="-0.312068" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[5]" color="#f14cc1"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="v, omega" containers="1">
+   <Container>
+    <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.256601" bottom="-0.321850" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/odometry/filtered/twist/twist/linear/x" color="#9467bd"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[10]" color="#d62728"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.805894" bottom="-0.861781" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/odometry/filtered/twist/twist/angular/z" color="#17becf"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[11]" color="#1ac938"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="theta" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="3.209462" bottom="-3.118383" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/odometry/filtered/pose/pose/orientation/yaw" color="#9467bd"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[8]" color="#bcbd22"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[9]" color="#1f77b4"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="timer" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.360694" bottom="0.074835" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/controller/values/values[0]" color="#d62728"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="y1, y1_target, y2, y2_target" containers="1">
+   <Container>
+    <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="1.004626" bottom="0.282796" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[12]" color="#d62728"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[13]" color="#1ac938"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.081577" bottom="-0.712440" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[14]" color="#ff7f0e"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[15]" color="#f14cc1"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="u1, y1_dot_target, u2, y2_dot_target" containers="1">
+   <Container>
+    <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.459536" bottom="-0.474143" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[18]" color="#9467bd"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[16]" color="#bcbd22"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.787364" bottom="-0.372642" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[19]" color="#17becf"/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[17]" color="#1f77b4"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="v_cmd, omega_cmd" containers="1">
+   <Container>
+    <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.279115" bottom="-0.768829" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[20]" color="#ff7f0e"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="1.599402" bottom="-1.410118" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/io_lin_tracker/values/values[21]" color="#f14cc1"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="cmd_vel" containers="1">
+   <Container>
+    <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.268018" bottom="-0.313854" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/cmd_vel/linear/x" color="#1f77b4"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="0.840000" bottom="-0.840000" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/cmd_vel/angular/z" color="#d62728"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="d" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range top="1.616946" bottom="0.905958" right="7.910256" left="0.039787"/>
+       <limitY/>
+       <curve name="/limo_1/debug/manager/values/values[0]" color="#d62728"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="12"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <Plugins>
+  <plugin ID="DataLoad CSV">
+   <parameters delimiter="0" time_axis=""/>
+  </plugin>
+  <plugin ID="DataLoad MCAP"/>
+  <plugin ID="DataLoad ROS2 bags">
+   <use_header_stamp value="false"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+   <boolean_strings_to_number value="true"/>
+   <remove_suffix_from_strings value="true"/>
+   <selected_topics value="/limo_1/debug/controller/signal_names;/limo_1/debug/controller/values;/limo_1/debug/io_lin_tracker/signal_names;/limo_1/debug/io_lin_tracker/values;/limo_1/debug/manager/signal_names;/limo_1/debug/manager/values;/limo_1/diagnostics;/limo_1/miqp_trajectory;/limo_1/odometry/filtered;/limo_1/odometry/filtered/differentiated;/limo_1/tracker_vel;/cmd_vel"/>
+  </plugin>
+  <plugin ID="DataLoad ULog"/>
+  <plugin ID="ROS2 Topic Subscriber">
+   <use_header_stamp value="false"/>
+   <discard_large_arrays value="true"/>
+   <max_array_size value="100"/>
+   <boolean_strings_to_number value="true"/>
+   <remove_suffix_from_strings value="true"/>
+   <selected_topics value="/limo_1/debug/pid_tracker/signal_names;/limo_1/debug/pid_tracker/values;/limo_1/ground_truth;/limo_1/miqp_trajectory;/limo_1/odometry/filtered;/limo_1/odometry/filtered/differentiated"/>
+  </plugin>
+  <plugin ID="UDP Server"/>
+  <plugin ID="WebSocket Server"/>
+  <plugin ID="ZMQ Subscriber"/>
+  <plugin ID="Fast Fourier Transform"/>
+  <plugin ID="Quaternion to RPY"/>
+  <plugin ID="Reactive Script Editor">
+   <library code="--[[ Helper function to create a series from arrays&#xa;&#xa; new_series: a series previously created with ScatterXY.new(name)&#xa; prefix:     prefix of the timeseries, before the index of the array&#xa; suffix_X:   suffix to complete the name of the series containing the X value. If [nil], use the index of the array.&#xa; suffix_Y:   suffix to complete the name of the series containing the Y value&#xa; timestamp:   usually the tracker_time variable&#xa;              &#xa; Example:&#xa; &#xa; Assuming we have multiple series in the form:&#xa; &#xa;   /trajectory/node.{X}/position/x&#xa;   /trajectory/node.{X}/position/y&#xa;   &#xa; where {N} is the index of the array (integer). We can create a reactive series from the array with:&#xa; &#xa;   new_series = ScatterXY.new(&quot;my_trajectory&quot;) &#xa;   CreateSeriesFromArray( new_series, &quot;/trajectory/node&quot;, &quot;position/x&quot;, &quot;position/y&quot;, tracker_time );&#xa;--]]&#xa;&#xa;function CreateSeriesFromArray( new_series, prefix, suffix_X, suffix_Y, timestamp )&#xa;  &#xa;  --- clear previous values&#xa;  new_series:clear()&#xa;  &#xa;  --- Append points to new_series&#xa;  index = 0&#xa;  while(true) do&#xa;&#xa;    x = index;&#xa;    -- if not nil, get the X coordinate from a series&#xa;    if suffix_X ~= nil then &#xa;      series_x = TimeseriesView.find( string.format( &quot;%s.%d/%s&quot;, prefix, index, suffix_X) )&#xa;      if series_x == nil then break end&#xa;      x = series_x:atTime(timestamp)&#x9; &#xa;    end&#xa;    &#xa;    series_y = TimeseriesView.find( string.format( &quot;%s.%d/%s&quot;, prefix, index, suffix_Y) )&#xa;    if series_y == nil then break end &#xa;    y = series_y:atTime(timestamp)&#xa;    &#xa;    new_series:push_back(x,y)&#xa;    index = index+1&#xa;  end&#xa;end&#xa;&#xa;--[[ Similar to the built-in function GetSeriesNames(), but select only the names with a give prefix. --]]&#xa;&#xa;function GetSeriesNamesByPrefix(prefix)&#xa;  -- GetSeriesNames(9 is a built-in function&#xa;  all_names = GetSeriesNames()&#xa;  filtered_names = {}&#xa;  for i, name in ipairs(all_names)  do&#xa;    -- check the prefix&#xa;    if name:find(prefix, 1, #prefix) then&#xa;      table.insert(filtered_names, name);&#xa;    end&#xa;  end&#xa;  return filtered_names&#xa;end&#xa;&#xa;--[[ Modify an existing series, applying offsets to all their X and Y values&#xa;&#xa; series: an existing timeseries, obtained with TimeseriesView.find(name)&#xa; delta_x: offset to apply to each x value&#xa; delta_y: offset to apply to each y value &#xa;  &#xa;--]]&#xa;&#xa;function ApplyOffsetInPlace(series, delta_x, delta_y)&#xa;  -- use C++ indeces, not Lua indeces&#xa;  for index=0, series:size()-1 do&#xa;    x,y = series:at(index)&#xa;    series:set(index, x + delta_x, y + delta_y)&#xa;  end&#xa;end&#xa;"/>
+   <scripts/>
+  </plugin>
+  <plugin ID="CSV Exporter"/>
+  <plugin ID="ROS2 Topic Re-Publisher"/>
+ </Plugins>
+ <!-- - - - - - - - - - - - - - - -->
+ <!-- - - - - - - - - - - - - - - -->
+ <customMathEquations/>
+ <snippets/>
+ <!-- - - - - - - - - - - - - - - -->
+</root>
+

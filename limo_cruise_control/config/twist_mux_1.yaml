@@ -1,0 +1,15 @@
+twist_mux_1:
+  ros__parameters:
+    topics:
+      transient_controller:
+        topic   : limo_1/transient_vel
+        timeout : 0.5
+        priority: 10
+      actuation_filter:
+        topic   : limo_1/filter_vel
+        timeout : 0.5
+        priority: 50
+      manager:
+        topic   : limo_1/manager_vel
+        timeout : 0.5
+        priority: 100

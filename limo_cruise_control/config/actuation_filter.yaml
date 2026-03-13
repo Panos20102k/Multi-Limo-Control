@@ -1,0 +1,6 @@
+actuation_filter:
+  ros__parameters: 
+    zoh_period: 0.1
+    initial_velocity: 0.5
+    pt1_time_constant: 0.1
+    pt1_gain: 1.4

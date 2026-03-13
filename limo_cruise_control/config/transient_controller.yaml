@@ -1,0 +1,5 @@
+transient_controller:
+  ros__parameters:
+    transient_velocity: 0.5
+    front_car_velocity: 0.1
+    zoh_period: 0.1

@@ -1,0 +1,4 @@
+manager:
+  ros__parameters: 
+    zoh_period: 0.1
+    stop_time: 15.0

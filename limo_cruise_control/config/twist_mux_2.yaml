@@ -1,0 +1,11 @@
+twist_mux_2:
+  ros__parameters:
+    topics:
+      transient_controller:
+        topic   : limo_2/transient_vel
+        timeout : 0.5
+        priority: 10
+      manager:
+        topic   : limo_2/manager_vel
+        timeout : 0.5
+        priority: 100
