@@ -14,7 +14,6 @@
         <visual>
             <geometry>
                 <box size="${base_length} ${base_width} ${base_height}" /> 
-                <!-- <mesh filename="file://$(find my_robot_description)/meshes/limo_base.dae" scale="1 1 1"/> -->
             </geometry>
             <origin xyz="0 0 ${base_height / 2.0}" rpy="0 0 0" />
             <!-- <origin xyz="0 0 ${-wheel_radius + 0.005}" rpy="0 0 ${pi / 2.0}" /> -->
