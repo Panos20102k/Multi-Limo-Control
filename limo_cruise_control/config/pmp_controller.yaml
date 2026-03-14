@@ -1,6 +1,6 @@
 pmp_controller:
   ros__parameters:
-    optimal_control_mode: False
+    optimal_control_mode: True
     stop_time: 15.0
     zoh_period: 0.1
     reference_velocity: 0.6

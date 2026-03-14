@@ -1,15 +1,15 @@
 <launch>
 	<!-- launch world -->
 	<include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
-  		<arg name="world" value="$(find-pkg-share limo_bringup)/worlds/wander_world.world" />
+  		<arg name="world" value="$(find-pkg-share limo_bringup)/worlds/cdc2026.world" />
 	</include>
 	<!-- launch limos -->
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_1.launch.py"/>
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_2.launch.py"/> 
-	<include file="$(find-pkg-share limo_bringup)/launch/limo_3.launch.py"/> 
+	<!--<include file="$(find-pkg-share limo_bringup)/launch/limo_3.launch.py"/> 
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_4.launch.py"/> 
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_5.launch.py"/>
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_6.launch.py"/>
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_7.launch.py"/>
-	<include file="$(find-pkg-share limo_bringup)/launch/limo_8.launch.py"/>
+	<include file="$(find-pkg-share limo_bringup)/launch/limo_8.launch.py"/>-->
 </launch>
