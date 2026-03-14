@@ -6,13 +6,9 @@ Seamlessly spawn multiple Limos in Gazebo and control them through intuitive and
 
 Transfer your control stack to real Limos with minimal-to-no adaptations.
 
-![CDC2026 Demo](media/cdc2026.gif) 
-
-## Features
-
-| Simulation (Gazebo) | Real LIMO Robot |
+| Gazebo | Real World |
 |---|---|
-| ![Gazebo Demo](media/demo.gif) | *Coming soon* |
+| ![Gazebo Demo](media/cdc2026.gif) | ![Gazebo Demo](media/demo.gif) |
 
 <!--Later change this to:
 
