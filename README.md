@@ -1,5 +1,5 @@
-# Multi-Limo Control
-A simple and adaptable robotic testbed to develop and test control algorithms for multiple [Limo ROS2](https://global.agilex.ai/products/limo-ros2) robots in the Gazebo environment.
+# Multi-Limo-Control
+A simple and adaptable robotic testbed to develop and test control algorithms for multiple [Limo ROS2](https://global.agilex.ai/products/limo-ros2) robots.
 
 <div align="center">
     <img src="media/flyer.png" alt="ocd_logo" width="100%" style="margin-bottom: 20px;">
@@ -37,14 +37,14 @@ Transfer your control stack to real Limos with minimal-to-no adaptations.
 
 ## What's included
 
-- A comprehensive yet simple urdf description of the Limo ROS2 robot in differential drive mode with its full sensor suite- LiDAR, IMU, wheel encoders and camera. Sensor noise and all other parameters are configurable.
+- A comprehensive yet simple urdf description of the Limo ROS2 robot in differential drive mode with its full sensor suite; LiDAR, IMU, wheel encoders and camera. Sensor noise and all other parameters are configurable.
 
 - Launch files that spawn multiple Limos in Gazebo, each with its own namespace and tf tree.
 
 - Two ready-to-run examples of control algorithms
 
     1. *Multi Limo Wandering*. Leverage raw LiDAR data to make multiple Limos wander safely around an environment with obstacles. Implementation follows the potential field concept from [The Construct Robotics Institute](https://www.youtube.com/watch?v=WxskRU5KjVQ)
-    2. *Adaptive Cruise Control*. Conduct optimal ACC for a Limo with safety distance constraint. Implementation follow our paper [Coming soon!](https://www.youtube.com/watch?v=WxskRU5KjVQ)
+    2. *Adaptive Cruise Control*. Conduct optimal ACC for a Limo with safety distance constraint. Implementation follows our paper [Coming soon!](https://www.youtube.com/watch?v=WxskRU5KjVQ)
 
 ## How it works
 
@@ -55,7 +55,7 @@ The repository contains four ros2 packages.
 
 | tf tree | ros graph |
 |---|---|
-| ![tf tree](media/tf_tree-1.png) | ![ros graph](media/rosgraph.png) |
+| ![tf tree](media/tf_tree.png) | ![ros graph](media/rosgraph.png) |
 
 3. **limo_wander**. Contains the control algorithm for the *Multi Limo Wandering* example.
 4. **limo_cruise_control** Contains the control algorithm for the *Adaptive Cruise Control* example.
