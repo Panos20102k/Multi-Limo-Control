@@ -8,6 +8,7 @@ A simple and adaptable robotic testbed to develop and test control algorithms fo
 <div align="center" style="margin-bottom: 30px;">
 
 [![CMake](https://img.shields.io/badge/CMake-3.22-1e6293?logo=cmake&logoColor=white)](https://cmake.org/)
+[![Gazebo](https://img.shields.io/badge/Gazebo-11-1e6293?logo=gazebo&logoColor=white)](https://gazebosim.org/)
 [![Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-1e6293.svg?&logo=apache&logoColor=white)](https://www.apache.org/licenses/LICENSE-2.0)
 [![DOI](https://img.shields.io/badge/DOI-10.1109%2FIV55156.2024.10588858-1e6293.svg?&logo=doi&logoColor=white)](https://doi.org/10.1109/IV55156.2024.10588858) <!-- Later change this to the actual DOI-->
 <br>
