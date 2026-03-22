@@ -28,7 +28,7 @@ Transfer your control stack to real Limos with minimal-to-no adaptations.
 
 | Gazebo | Real World |
 |---|---|
-| ![Gazebo Demo](media/cdc2026.gif) | ![Gazebo Demo](media/demo.gif) |
+| ![Gazebo Demo](media/cdc2026.gif) | ![Gazebo Demo](media/cdc2026_real_opt.gif) |
 
 <!--Later change this to:
 
