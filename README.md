@@ -45,7 +45,7 @@ Transfer your control stack to real Limos with minimal-to-no adaptations.
 - Two ready-to-run examples of control algorithms
 
     1. *Multi Limo Wandering*. Leverage raw LiDAR data to make multiple Limos wander safely around an environment with obstacles. Implementation follows the potential field concept from [The Construct Robotics Institute](https://www.youtube.com/watch?v=WxskRU5KjVQ)
-    2. *Adaptive Cruise Control*. Conduct optimal ACC for a Limo with safety distance constraint. Implementation follows our paper [Coming soon!](https://www.youtube.com/watch?v=WxskRU5KjVQ)
+    2. *Adaptive Cruise Control*. Conduct optimal ACC for a Limo with safety distance constraint. Implementation follows our paper (Coming soon!)
 
 ## How it works
 
