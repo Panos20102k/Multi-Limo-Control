@@ -93,7 +93,10 @@ ros2 launch limo_cruise_control controller_launch.py
 
 ## Cite as
 
-If you find *Multi-Limo-Control* useful, please consider citing our paper as  (Coming Soon !)[Analyzing the Impact of Simulation Fidelity on the Evaluation of Autonomous Driving Motion Control](https://ieeexplore.ieee.org/document/10588858/). 
+If you find *Multi-Limo-Control* useful, please consider citing our paper as  (Coming Soon !)
+
+
+<!-- [Analyzing the Impact of Simulation Fidelity on the Evaluation of Autonomous Driving Motion Control](https://ieeexplore.ieee.org/document/10588858/). 
 
 ```
 @INPROCEEDINGS{10588858,
@@ -107,7 +110,7 @@ If you find *Multi-Limo-Control* useful, please consider citing our paper as  (C
   keywords={Measurement;Analytical models;Heuristic algorithms;Software algorithms;Approximation algorithms;Data models;Vehicle dynamics},
   doi={10.1109/IV55156.2024.10588858}}
 
-```
+``` -->
 
 ## Developers
 - Panagiotis Kounatidis. pk586@cornell.edu
