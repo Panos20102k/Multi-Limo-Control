@@ -44,8 +44,8 @@ Transfer your control stack to real Limos with minimal-to-no adaptations.
 
 - Two ready-to-run examples of control algorithms
 
-    1. *Multi Limo Wandering*. Leverage raw LiDAR data to make multiple Limos wander safely around an environment with obstacles. Implementation follows the potential field concept from [The Construct Robotics Institute](https://www.youtube.com/watch?v=WxskRU5KjVQ)
-    2. *Adaptive Cruise Control*. Conduct optimal ACC for a Limo with safety distance constraint. Implementation follows our paper (Coming soon!)
+    1. *Multi Limo Wandering*. Leverage raw LiDAR data to make multiple Limos wander safely around an environment with obstacles. Implementation follows the potential field concept from [The Construct Robotics Institute](https://www.youtube.com/watch?v=WxskRU5KjVQ).
+    2. *Adaptive Cruise Control*. Conduct optimal ACC for a Limo with safety distance constraint. Implementation follows our [paper](https://arxiv.org/abs/2603.27677).
 
 ## How it works
 
@@ -93,8 +93,18 @@ ros2 launch limo_cruise_control controller_launch.py
 
 ## Cite as
 
-If you find *Multi-Limo-Control* useful, please consider citing our paper as  (Coming Soon !)
+If you find *Multi-Limo-Control* useful, please consider citing our paper [Safety-Constrained Optimal Control for Unknown System Dynamics](https://arxiv.org/abs/2603.27677).
 
+```
+@misc{kounatidis2026,
+    title={Safety-Constrained Optimal Control for Unknown System Dynamics}, 
+    author={Panagiotis Kounatidis and Andreas A. Malikopoulos},
+    year={2026},
+    eprint={2603.27677},
+    archivePrefix={arXiv},
+    primaryClass={eess.SY},
+    url={https://arxiv.org/abs/2603.27677}}
+```
 
 <!-- [Analyzing the Impact of Simulation Fidelity on the Evaluation of Autonomous Driving Motion Control](https://ieeexplore.ieee.org/document/10588858/). 
 
@@ -113,4 +123,4 @@ If you find *Multi-Limo-Control* useful, please consider citing our paper as  (C
 ``` -->
 
 ## Developers
-- Panagiotis Kounatidis. pk586@cornell.edu
+- [Panagiotis Kounatidis](https://panos20102k.github.io/), pk586@cornell.edu.
