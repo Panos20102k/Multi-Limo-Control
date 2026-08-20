@@ -19,7 +19,7 @@ single_stage_learning:
     validation_model_tau: 0.5
     validation_model_gain: 1.2
     wait_for_odometry: true
-    velocity_topic: /limo_1/ground_truth
+    velocity_topic: /limo_1/odometry/filtered
 
 single_stage_actuation_filter:
   ros__parameters:
@@ -29,4 +29,4 @@ single_stage_actuation_filter:
     minimum_velocity: -1.0
     maximum_velocity: 1.0
     command_timeout: 0.25
-    velocity_topic: /limo_1/ground_truth
+    velocity_topic: /limo_1/odometry/filtered

@@ -18,7 +18,8 @@ class ActuationFilterNode(Node):
         self.declare_parameter('minimum_velocity', -1.0)
         self.declare_parameter('maximum_velocity', 1.0)
         self.declare_parameter('command_timeout', 0.25)
-        self.declare_parameter('velocity_topic', '/limo_1/ground_truth')
+        self.declare_parameter(
+            'velocity_topic', '/limo_1/odometry/filtered')
 
         def p(name):
             return self.get_parameter(name).value
@@ -44,7 +45,7 @@ class ActuationFilterNode(Node):
         self.create_timer(self.period, self._tick)
 
     def _odom(self, msg):
-        # Ground truth initializes the simulated plant state. After that, the
+        # The EKF velocity initializes the simulated plant state. After that, the
         # PT1 recursion advances at its own rate rather than reusing 50 Hz
         # odometry samples in a 100 Hz timer.
         if not self.initialized:

@@ -22,7 +22,7 @@ class LearningNode(Node):
             'exploration_amplitude': 0.18, 'exploration_decay': 0.92,
             'validation_model_tau': 0.5, 'validation_model_gain': 1.2,
             'wait_for_odometry': True,
-            'velocity_topic': '/limo_1/ground_truth',
+            'velocity_topic': '/limo_1/odometry/filtered',
         }
         for name, value in defaults.items():
             self.declare_parameter(name, value)
@@ -75,7 +75,7 @@ class LearningNode(Node):
         self.complete_pub = self.create_publisher(Bool, '~/complete', 1)
         self.create_timer(p('control_period'), self._tick)
         self.get_logger().info(
-            'Waiting for ground-truth velocity; experiment starts from the measured state')
+            'Waiting for EKF velocity; experiment starts from the measured state')
 
     def _odom(self, msg):
         self.velocity = msg.twist.twist.linear.x
