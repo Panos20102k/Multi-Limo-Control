@@ -20,8 +20,6 @@ class LearningNode(Node):
             'initial_policy_intercept': 0.20, 'exploration_amplitude': 0.18,
             'exploration_decay': 0.92, 'validation_model_tau': 0.5,
             'validation_model_gain': 1.2, 'wait_for_odometry': True,
-            'initialize_velocity': True, 'initial_velocity': 0.1,
-            'initial_velocity_tolerance': 0.01, 'initial_velocity_dwell': 0.5,
         }
         for name, value in defaults.items():
             self.declare_parameter(name, value)
@@ -40,12 +38,6 @@ class LearningNode(Node):
             model_gain=p('validation_model_gain'),
         )
         self.wait_for_odometry = p('wait_for_odometry')
-        self.initialize_velocity = p('initialize_velocity')
-        self.initial_velocity = p('initial_velocity')
-        self.initial_control = self.initial_velocity / p('validation_model_gain')
-        self.initial_tolerance = p('initial_velocity_tolerance')
-        self.initial_dwell = p('initial_velocity_dwell')
-        self.ready_since = None
         self.velocity = 0.0
         self.have_odometry = False
         self.finished = False
@@ -77,19 +69,6 @@ class LearningNode(Node):
     def _tick(self):
         if self.finished or (self.wait_for_odometry and not self.have_odometry):
             return
-        if self.initialize_velocity:
-            if abs(self.velocity - self.initial_velocity) <= self.initial_tolerance:
-                if self.ready_since is None:
-                    self.ready_since = self.get_clock().now()
-                dwell = (self.get_clock().now() - self.ready_since).nanoseconds / 1e9
-                if dwell >= self.initial_dwell:
-                    self.initialize_velocity = False
-                    self.get_logger().info('Initial velocity reached; starting stage 1')
-            else:
-                self.ready_since = None
-            if self.initialize_velocity:
-                self.command_pub.publish(self._float(self.initial_control))
-                return
         sample = self.learner.step(self.velocity)
         self.command_pub.publish(self._float(sample.control))
         values = {

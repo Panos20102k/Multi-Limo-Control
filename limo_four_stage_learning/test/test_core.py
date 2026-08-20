@@ -9,7 +9,7 @@ def test_four_stages_freeze_and_reuse_policies():
         learning_duration=0.08, stage_duration=0.10,
     )
     samples = []
-    velocity = 0.1
+    velocity = 0.0
     for _ in range(learner.total_steps):
         sample = learner.step(velocity)
         samples.append(sample)
@@ -20,7 +20,7 @@ def test_four_stages_freeze_and_reuse_policies():
     stage3 = samples[2 * learner.stage_steps].policy
     stage4 = samples[3 * learner.stage_steps].policy
     assert np.allclose(stage3, learner.learned_policies[0.6])
-    assert np.allclose(stage4, learner.learned_policies[0.1])
+    assert np.allclose(stage4, learner.learned_policies[0.0])
 
 
 def test_completion_is_safe_zero_command():
@@ -29,7 +29,7 @@ def test_completion_is_safe_zero_command():
         learning_duration=0.08, stage_duration=0.10,
     )
     for _ in range(learner.total_steps):
-        learner.step(0.1)
-    final = learner.step(0.1)
+        learner.step(0.0)
+    final = learner.step(0.0)
     assert final.complete
     assert final.control == 0.0

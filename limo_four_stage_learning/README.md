@@ -1,11 +1,10 @@
 # LIMO four-stage learning experiment
 
-This package runs the same uninterrupted experiment as
-`four_stage_limo_hamiltonian_learning.ipynb`: learn and exploit at 0.6 m/s,
-learn and exploit at 0.1 m/s, then reuse the two frozen policies without
-exploration. The learner waits for filtered odometry before starting its
-80-second clock. A short pre-roll first brings the simulated robot to the
-notebook's 0.1 m/s initial velocity; this time is not part of the experiment.
+This package runs one uninterrupted four-stage experiment starting directly
+from the measured Gazebo state (normally 0.0 m/s): learn and exploit at
+0.6 m/s, learn and exploit at 0.0 m/s, then reuse the two frozen policies
+without exploration. The learner waits for filtered odometry before starting
+its 80-second clock; it does not perform a velocity pre-roll.
 
 Bring up `limo_gazebo` first, then run:
 
