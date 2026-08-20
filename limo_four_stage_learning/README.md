@@ -32,3 +32,9 @@ The velocity/reference, control/policy/exploration, policy, theta,
 Hamiltonian-gradient, and fixed-domain RMSE topics reproduce the notebook's
 six figures. `theta.data` is `[P_hat, s_hat, c_hat, gamma1_hat, gamma0_hat]`;
 `policy.data` is `[k_e, k_0]`.
+
+Both the learner and PT1 filter use `/limo_1/ground_truth` by default. The
+filter uses ground truth only to initialize its state, then advances the PT1
+recursion internally at 100 Hz. This avoids weakening the excitation by
+reusing Gazebo's 50 Hz feedback sample twice. The feedback topic remains
+configurable through `velocity_topic`.

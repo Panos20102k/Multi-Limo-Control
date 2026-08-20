@@ -20,6 +20,7 @@ class LearningNode(Node):
             'initial_policy_intercept': 0.20, 'exploration_amplitude': 0.18,
             'exploration_decay': 0.92, 'validation_model_tau': 0.5,
             'validation_model_gain': 1.2, 'wait_for_odometry': True,
+            'velocity_topic': '/limo_1/ground_truth',
         }
         for name, value in defaults.items():
             self.declare_parameter(name, value)
@@ -41,7 +42,8 @@ class LearningNode(Node):
         self.velocity = 0.0
         self.have_odometry = False
         self.finished = False
-        self.create_subscription(Odometry, '/limo_1/odometry/filtered', self._odom, 20)
+        self.create_subscription(
+            Odometry, p('velocity_topic'), self._odom, 20)
         self.command_pub = self.create_publisher(Float64, '~/control_input', 20)
         names = ('velocity', 'reference', 'error', 'policy_control', 'exploration',
                  'learned_gradient', 'model_gradient', 'gradient_rmse', 'elapsed')
@@ -54,7 +56,8 @@ class LearningNode(Node):
         self.update_pub = self.create_publisher(Bool, '~/policy_updated', 20)
         self.complete_pub = self.create_publisher(Bool, '~/complete', 1)
         self.timer = self.create_timer(p('control_period'), self._tick)
-        self.get_logger().info('Waiting for /limo_1/odometry/filtered to start experiment')
+        self.get_logger().info(
+            'Waiting for ground-truth velocity to start experiment')
 
     def _odom(self, msg):
         self.velocity = msg.twist.twist.linear.x

@@ -18,6 +18,7 @@ class ActuationFilterNode(Node):
         self.declare_parameter('minimum_velocity', -1.0)
         self.declare_parameter('maximum_velocity', 1.0)
         self.declare_parameter('command_timeout', 0.25)
+        self.declare_parameter('velocity_topic', '/limo_1/ground_truth')
 
         def p(name):
             return self.get_parameter(name).value
@@ -27,38 +28,46 @@ class ActuationFilterNode(Node):
         self.minimum = p('minimum_velocity')
         self.maximum = p('maximum_velocity')
         self.timeout = p('command_timeout')
-        self.velocity = 0.0
+        self.filter_state = 0.0
         self.control = 0.0
-        self.have_odom = False
+        self.initialized = False
         self.last_command = None
-        self.create_subscription(Odometry, '/limo_1/odometry/filtered', self._odom, 20)
+        self.create_subscription(
+            Odometry, p('velocity_topic'), self._odom, 20)
         self.create_subscription(Float64, '/four_stage_learning/control_input', self._control, 20)
         self.command_pub = self.create_publisher(Twist, '/limo_1/four_stage_vel', 20)
         self.filtered_pub = self.create_publisher(Float64, '~/filtered_velocity', 20)
         self.create_timer(self.period, self._tick)
 
     def _odom(self, msg):
-        self.velocity = msg.twist.twist.linear.x
-        self.have_odom = True
+        # Ground truth initializes the modeled plant once. The PT1 state then
+        # advances at 100 Hz without reusing Gazebo's slower 50 Hz samples.
+        if not self.initialized:
+            self.filter_state = msg.twist.twist.linear.x
+            self.initialized = True
 
     def _control(self, msg):
         self.control = msg.data
         self.last_command = self.get_clock().now()
 
     def _tick(self):
-        if not self.have_odom:
+        if not self.initialized:
             return
         stale = self.last_command is None
         if not stale:
-            stale = (self.get_clock().now() - self.last_command).nanoseconds / 1e9 > self.timeout
-        desired = 0.0 if stale else (
-            self.alpha * self.velocity + self.gain * (1.0 - self.alpha) * self.control
+            age = (self.get_clock().now() - self.last_command).nanoseconds / 1e9
+            stale = age > self.timeout
+        effective_control = 0.0 if stale else self.control
+        self.filter_state = (
+            self.alpha * self.filter_state
+            + self.gain * (1.0 - self.alpha) * effective_control
         )
-        desired = min(max(desired, self.minimum), self.maximum)
+        self.filter_state = min(
+            max(self.filter_state, self.minimum), self.maximum)
         msg = Twist()
-        msg.linear.x = desired
+        msg.linear.x = self.filter_state
         self.command_pub.publish(msg)
-        self.filtered_pub.publish(Float64(data=desired))
+        self.filtered_pub.publish(Float64(data=self.filter_state))
 
 
 def main(args=None):
