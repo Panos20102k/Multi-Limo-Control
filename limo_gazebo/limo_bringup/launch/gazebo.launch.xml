@@ -5,7 +5,7 @@
 	</include>
 	<!-- launch limos -->
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_1.launch.py"/>
-	<include file="$(find-pkg-share limo_bringup)/launch/limo_2.launch.py"/> 
+	<!-- <include file="$(find-pkg-share limo_bringup)/launch/limo_2.launch.py"/>  -->
 	<!--<include file="$(find-pkg-share limo_bringup)/launch/limo_3.launch.py"/> 
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_4.launch.py"/> 
 	<include file="$(find-pkg-share limo_bringup)/launch/limo_5.launch.py"/>
