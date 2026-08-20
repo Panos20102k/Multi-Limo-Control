@@ -12,6 +12,24 @@ Bring up `limo_gazebo` first, then run:
 ros2 launch limo_four_stage_learning four_stage_experiment.launch.py
 ```
 
+The command above preserves the successful Gazebo ground-truth experiment.
+To test the estimator-backed path instead, run:
+
+```bash
+ros2 launch limo_four_stage_learning four_stage_ekf_experiment.launch.py
+```
+
+On a physical LIMO, use wall time:
+
+```bash
+ros2 launch limo_four_stage_learning four_stage_ekf_experiment.launch.py \
+  use_sim_time:=false
+```
+
+If the robot bringup already provides an EKF configured to publish forward
+velocity on `/limo_1/odometry/filtered`, add `start_ekf:=false` to avoid
+starting a duplicate estimator.
+
 Do not run another node that publishes `/limo_1/cmd_vel` at the same time.
 Record every experiment signal with:
 
@@ -38,3 +56,10 @@ filter uses ground truth only to initialize its state, then advances the PT1
 recursion internally at 100 Hz. This avoids weakening the excitation by
 reusing Gazebo's 50 Hz feedback sample twice. The feedback topic remains
 configurable through `velocity_topic`.
+
+The separate EKF launch uses `ekf_feedback.yaml` to switch both nodes to
+`/limo_1/odometry/filtered`. Its estimator configuration explicitly fuses
+wheel-odometry `vx` and publishes at 100 Hz. Gazebo uses simulation time, so
+80 seconds of experiment time may take longer than 80 wall-clock seconds when
+the simulator real-time factor is below one; the physical-LIMO launch uses
+wall time and therefore runs for approximately 80 real seconds.

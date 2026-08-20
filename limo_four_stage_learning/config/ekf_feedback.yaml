@@ -1,0 +1,7 @@
+four_stage_learning:
+  ros__parameters:
+    velocity_topic: /limo_1/odometry/filtered
+
+four_stage_actuation_filter:
+  ros__parameters:
+    velocity_topic: /limo_1/odometry/filtered
