@@ -1,0 +1,32 @@
+single_stage_learning:
+  ros__parameters:
+    control_period: 0.01
+    rls_interval: 0.10
+    policy_window: 3.0
+    learning_duration: 16.0
+    experiment_duration: 20.0
+    reference_velocity: 0.6
+    q: 2.0
+    r: 0.5
+    rho: 0.3
+    rls_forgetting: 1.0
+    covariance_scale: 1000000.0
+    policy_blend: 0.40
+    initial_policy_slope: -0.60
+    initial_policy_intercept: 0.20
+    exploration_amplitude: 0.18
+    exploration_decay: 0.92
+    validation_model_tau: 0.5
+    validation_model_gain: 1.2
+    wait_for_odometry: true
+    velocity_topic: /limo_1/ground_truth
+
+single_stage_actuation_filter:
+  ros__parameters:
+    zoh_period: 0.01
+    pt1_time_constant: 0.5
+    pt1_gain: 1.2
+    minimum_velocity: -1.0
+    maximum_velocity: 1.0
+    command_timeout: 0.25
+    velocity_topic: /limo_1/ground_truth
