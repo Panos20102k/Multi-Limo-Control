@@ -2,7 +2,7 @@
 
 This package runs one uninterrupted four-stage experiment starting directly
 from the measured Gazebo state (normally 0.0 m/s): learn and exploit at
-0.6 m/s, learn and exploit at 0.0 m/s, then reuse the two frozen policies
+0.8 m/s, learn and exploit at 0.0 m/s, then reuse the two frozen policies
 without exploration. The learner waits for filtered odometry before starting
 its 80-second clock; it does not perform a velocity pre-roll.
 

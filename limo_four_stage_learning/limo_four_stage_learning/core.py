@@ -60,7 +60,7 @@ class FourStageLearner:
         self.model_a = -1.0 / float(model_tau)
         self.model_b = float(model_gain) / float(model_tau)
         self.error_grid = np.linspace(error_grid_min, error_grid_max, error_grid_size)
-        self.references = (0.6, 0.0, 0.6, 0.0)
+        self.references = (0.8, 0.0, 0.8, 0.0)
         self.learn_stage = (True, True, False, False)
         self.total_steps = 4 * self.stage_steps
         self.exact = {ref: self._exact_solution(ref) for ref in set(self.references)}

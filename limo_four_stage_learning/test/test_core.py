@@ -19,7 +19,7 @@ def test_four_stages_freeze_and_reuse_policies():
     assert all(sample.exploration == 0.0 for sample in samples[2 * learner.stage_steps:])
     stage3 = samples[2 * learner.stage_steps].policy
     stage4 = samples[3 * learner.stage_steps].policy
-    assert np.allclose(stage3, learner.learned_policies[0.6])
+    assert np.allclose(stage3, learner.learned_policies[0.8])
     assert np.allclose(stage4, learner.learned_policies[0.0])
 
 
