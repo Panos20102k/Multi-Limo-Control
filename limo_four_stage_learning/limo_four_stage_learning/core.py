@@ -34,7 +34,7 @@ class FourStageLearner:
 
     def __init__(
         self, dt=0.01, interval=0.10, policy_window=3.0,
-        learning_duration=16.0, stage_duration=20.0, q=2.0, r=0.5,
+        learning_duration=30.0, stage_duration=40.0, q=2.0, r=0.5,
         rho=0.3, forgetting=1.0, covariance_scale=1e6,
         policy_blend=0.40, initial_slope=-0.60, initial_intercept=0.20,
         exploration_amplitude=0.18, exploration_decay=0.92,
@@ -60,7 +60,7 @@ class FourStageLearner:
         self.model_a = -1.0 / float(model_tau)
         self.model_b = float(model_gain) / float(model_tau)
         self.error_grid = np.linspace(error_grid_min, error_grid_max, error_grid_size)
-        self.references = (0.6, 0.0, 0.6, 0.0)
+        self.references = (0.8, 0.0, 0.8, 0.0)
         self.learn_stage = (True, True, False, False)
         self.total_steps = 4 * self.stage_steps
         self.exact = {ref: self._exact_solution(ref) for ref in set(self.references)}

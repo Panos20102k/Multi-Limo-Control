@@ -13,8 +13,8 @@ class LearningNode(Node):
         super().__init__('four_stage_learning')
         defaults = {
             'control_period': 0.01, 'rls_interval': 0.10,
-            'policy_window': 3.0, 'learning_duration': 16.0,
-            'stage_duration': 20.0, 'q': 2.0, 'r': 0.5, 'rho': 0.3,
+            'policy_window': 3.0, 'learning_duration': 30.0,
+            'stage_duration': 40.0, 'q': 2.0, 'r': 0.5, 'rho': 0.3,
             'rls_forgetting': 1.0, 'covariance_scale': 1e6,
             'policy_blend': 0.40, 'initial_policy_slope': -0.60,
             'initial_policy_intercept': 0.20, 'exploration_amplitude': 0.18,

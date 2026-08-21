@@ -3,8 +3,8 @@ four_stage_learning:
     control_period: 0.01
     rls_interval: 0.10
     policy_window: 3.0
-    learning_duration: 16.0
-    stage_duration: 20.0
+    learning_duration: 30.0
+    stage_duration: 40.0
     q: 2.0
     r: 0.5
     rho: 0.3

@@ -3,8 +3,10 @@
 This package runs one uninterrupted four-stage experiment starting directly
 from the measured Gazebo state (normally 0.0 m/s): learn and exploit at
 0.8 m/s, learn and exploit at 0.0 m/s, then reuse the two frozen policies
-without exploration. The learner waits for filtered odometry before starting
-its 80-second clock; it does not perform a velocity pre-roll.
+without exploration. The learner waits for velocity feedback before starting
+its 160-second clock; it does not perform a velocity pre-roll. Learning is
+active for the first 30 seconds of stages 1 and 2; the remaining 10 seconds
+are pure exploitation.
 
 Bring up `limo_gazebo` first, then run:
 
@@ -60,6 +62,6 @@ configurable through `velocity_topic`.
 The separate EKF launch uses `ekf_feedback.yaml` to switch both nodes to
 `/limo_1/odometry/filtered`. Its estimator configuration explicitly fuses
 wheel-odometry `vx` and publishes at 100 Hz. Gazebo uses simulation time, so
-80 seconds of experiment time may take longer than 80 wall-clock seconds when
+160 seconds of experiment time may take longer than 160 wall-clock seconds when
 the simulator real-time factor is below one; the physical-LIMO launch uses
-wall time and therefore runs for approximately 80 real seconds.
+wall time and therefore runs for approximately 160 real seconds.
