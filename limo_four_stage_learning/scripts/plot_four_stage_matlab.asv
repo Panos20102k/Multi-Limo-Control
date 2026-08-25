@@ -35,27 +35,17 @@ export_options = { ...
         'tick label style={font=\large}', ...
         'label style={font=\large}', ...
         'title style={font=\Large}', ...
-        'legend style={font=\large,fill=white,draw=black,text=black}' ...
+        'legend style={font=\large}' ...
     } ...
 };
 
 %% 1. Ground-truth velocity
 velocity_data = load("mat_data/ground_truth_velocity.mat");
 figure('Name', 'Ground-truth velocity');
-plot(velocity_data.time, velocity_data.velocity, ...
-     'Color', [0 0.4470 0.7410], 'DisplayName', '$v(t)$');
-hold on;
-stairs(velocity_data.reference_time, velocity_data.reference, ...
-       '--', 'Color', [0.8500 0.3250 0.0980], ...
-       'DisplayName', '$v_{\mathrm{ref}}$');
-hold off;
+plot(velocity_data.time, velocity_data.velocity, 'Color', [0 0.4470 0.7410]);
 xlabel('Experiment time [s]', 'Interpreter', 'latex');
 ylabel('Velocity [m/s]', 'Interpreter', 'latex');
 % title('LIMO ground-truth velocity', 'Interpreter', 'latex');
-velocity_legend = legend('Location', 'northeast', 'Interpreter', 'latex');
-velocity_legend.Color = 'white';
-velocity_legend.TextColor = 'black';
-velocity_legend.EdgeColor = 'black';
 grid on;
 box on
 set(gcf,'Color','w');
@@ -63,13 +53,6 @@ set(gca,'Color','w');
 set(gca,'XColor','k');
 set(gca,'YColor','k');
 set(gca,'FontSize',32);
-
-velocity_min = min([velocity_data.velocity(:); velocity_data.reference(:)]);
-velocity_max = max([velocity_data.velocity(:); velocity_data.reference(:)]);
-velocity_range = velocity_max - velocity_min;
-velocity_margin = max(0.05, 0.08 * velocity_range);
-ylim([velocity_min - velocity_margin, velocity_max + velocity_margin]);
-
 matlab2tikz('tex/ground_truth_velocity.tex');
 
 %% 2. Learned and model Hamiltonian gradients
@@ -133,8 +116,8 @@ matlab2tikz( ...
     });
 
 %% 3. Policy coefficients in one two-panel figure
-slope_data = load('mat_data/policy_slope.mat');
-intercept_data = load('mat_data/policy_intercept.mat');
+slope_data = load('mat_data/po');
+intercept_data = load(fullfile(data_dir, 'policy_intercept.mat'));
 
 policy_max_points = 1000;
 policy_sample_count = min( ...
@@ -149,15 +132,6 @@ policy_time_plot = slope_data.time(policy_indices);
 policy_slope_plot = slope_data.policy_slope(policy_indices);
 policy_intercept_plot = intercept_data.policy_intercept(policy_indices);
 
-% The bag topics share the controller sample clock. Use the recorded
-% reference schedule to select the correct optimal intercept by stage:
-% k_0^*=0.29 for v_ref=0.6, and k_0^*=0 for v_ref=0.
-if numel(velocity_data.reference) ~= policy_sample_count
-    error('Reference and policy topics have different sample counts.');
-end
-optimal_intercept_plot = 0.29 * ...
-    (velocity_data.reference(policy_indices) > 0.0);
-
 fprintf('Policy export: %d of %d samples per subplot.\n', ...
         numel(policy_indices), policy_sample_count);
 
@@ -165,19 +139,8 @@ figure('Name', 'Policy coefficients', 'Color', 'w');
 
 subplot(2, 1, 1);
 plot(policy_time_plot, policy_slope_plot, ...
-     'Color', [0 0.4470 0.7410], ...
-     'DisplayName', '$k_1(t)$');
-hold on;
-plot([policy_time_plot(1), policy_time_plot(end)], [-1.30, -1.30], ...
-     '--', 'Color', [0 0.4470 0.7410], ...
-     'DisplayName', '$k_1^*$');
-hold off;
-ylabel('$k_1$', 'Interpreter', 'latex');
-% slope_legend = legend('Location', 'northeast', 'Interpreter', 'latex');
-% slope_legend.Color = 'white';
-% slope_legend.TextColor = 'black';
-% slope_legend.EdgeColor = 'black';
-% slope_legend.Box = 'on';
+     'Color', [0.4660 0.6740 0.1880]);
+ylabel('$k_e$', 'Interpreter', 'latex');
 grid on;
 box on;
 ax_slope = gca;
@@ -189,20 +152,9 @@ ax_slope.XTickLabel = [];
 
 subplot(2, 1, 2);
 plot(policy_time_plot, policy_intercept_plot, ...
-     'Color', [0.8500 0.3250 0.0980], ...
-     'DisplayName', '$k_0(t)$');
-hold on;
-stairs(policy_time_plot, optimal_intercept_plot, ...
-     '--', 'Color', [0.8500 0.3250 0.0980], ...
-     'DisplayName', '$k_0^*$');
-hold off;
+     'Color', [0.8500 0.3250 0.0980]);
 xlabel('Experiment time [s]', 'Interpreter', 'latex');
 ylabel('$k_0$', 'Interpreter', 'latex');
-% intercept_legend = legend('Location', 'northeast', 'Interpreter', 'latex');
-% intercept_legend.Color = 'white';
-% intercept_legend.TextColor = 'black';
-% intercept_legend.EdgeColor = 'black';
-% intercept_legend.Box = 'on';
 grid on;
 box on;
 ax_intercept = gca;
@@ -210,14 +162,6 @@ ax_intercept.Color = 'white';
 ax_intercept.XColor = 'black';
 ax_intercept.YColor = 'black';
 ax_intercept.FontSize = 32;
-
-% Pad the intercept limits so k_0(t) and k_0^* stay inside the axes box.
-intercept_min = min([policy_intercept_plot(:); optimal_intercept_plot(:)]);
-intercept_max = max([policy_intercept_plot(:); optimal_intercept_plot(:)]);
-intercept_range = intercept_max - intercept_min;
-intercept_margin = max(0.05, 0.08 * intercept_range);
-ylim(ax_intercept, [intercept_min - intercept_margin, ...
-                    intercept_max + intercept_margin]);
 
 % Use identical horizontal limits and aligned plot boxes.
 x_limits = [ ...
