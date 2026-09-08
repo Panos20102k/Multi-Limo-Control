@@ -6,6 +6,7 @@
 %
 \definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
 \definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.07059,0.07059,0.07059}%
 %
 \begin{tikzpicture}
 
@@ -30,7 +31,7 @@ ylabel={$\nabla_u H$},
 axis background/.style={fill=white},
 xmajorgrids,
 ymajorgrids,
-legend style={legend cell align=left, align=left, draw=black},
+legend style={legend cell align=left, align=left, draw=black, fill=white},
 axis background/.style={fill=white},
 axis line style={black},
 tick style={black},
@@ -2056,13 +2057,13 @@ legend style={fill=white,draw=black,text=black}
 \begin{axis}[%
 width=0.465\figurewidth,
 height=0.439\figureheight,
-at={(0.245\figurewidth,0.517\figureheight)},
+at={(0.168\figurewidth,0.517\figureheight)},
 scale only axis,
 xmin=0,
 xmax=40,
-ymin=-1.13452138171243,
-ymax=2.60369252695544,
-axis background/.style={fill=white},
+ymin=-1,
+ymax=1,
+axis background/.style={fill=mycolor3},
 title style={font=\bfseries},
 title={$0\leq t\leq40\,\mathrm{s}$},
 xmajorgrids,
