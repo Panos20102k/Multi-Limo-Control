@@ -205,18 +205,18 @@ figure('Name', 'Policy coefficients', 'Color', 'w');
 subplot(2, 1, 1);
 plot(policy_time_plot, policy_slope_plot, ...
      'Color', [0 0.4470 0.7410], ...
-     'DisplayName', '$k_1(t)$');
+     'DisplayName', '$k_1$');
 hold on;
 plot([policy_time_plot(1), policy_time_plot(end)], [-1.30, -1.30], ...
      '--', 'Color', [0 0.4470 0.7410], ...
      'DisplayName', '$k_1^*$');
 hold off;
 ylabel('$k_1$', 'Interpreter', 'latex');
-% slope_legend = legend('Location', 'northeast', 'Interpreter', 'latex');
-% slope_legend.Color = 'white';
-% slope_legend.TextColor = 'black';
-% slope_legend.EdgeColor = 'black';
-% slope_legend.Box = 'on';
+slope_legend = legend('Location', 'northeast', 'Interpreter', 'latex');
+slope_legend.Color = 'white';
+slope_legend.TextColor = 'black';
+slope_legend.EdgeColor = 'black';
+slope_legend.Box = 'on';
 grid on;
 box on;
 ax_slope = gca;
@@ -229,7 +229,7 @@ ax_slope.XTickLabel = [];
 subplot(2, 1, 2);
 plot(policy_time_plot, policy_intercept_plot, ...
      'Color', [0.8500 0.3250 0.0980], ...
-     'DisplayName', '$k_0(t)$');
+     'DisplayName', '$k_0$');
 hold on;
 stairs(policy_time_plot, optimal_intercept_plot, ...
      '--', 'Color', [0.8500 0.3250 0.0980], ...
@@ -237,11 +237,11 @@ stairs(policy_time_plot, optimal_intercept_plot, ...
 hold off;
 xlabel('Experiment time [s]', 'Interpreter', 'latex');
 ylabel('$k_0$', 'Interpreter', 'latex');
-% intercept_legend = legend('Location', 'northeast', 'Interpreter', 'latex');
-% intercept_legend.Color = 'white';
-% intercept_legend.TextColor = 'black';
-% intercept_legend.EdgeColor = 'black';
-% intercept_legend.Box = 'on';
+intercept_legend = legend('Location', 'northeast', 'Interpreter', 'latex');
+intercept_legend.Color = 'white';
+intercept_legend.TextColor = 'black';
+intercept_legend.EdgeColor = 'black';
+intercept_legend.Box = 'on';
 grid on;
 box on;
 ax_intercept = gca;

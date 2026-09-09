@@ -1,8 +1,7 @@
 % This file was created by matlab2tikz.
 %
 \definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
-\definecolor{mycolor2}{rgb}{0.12941,0.12941,0.12941}%
-\definecolor{mycolor3}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
 %
 \begin{tikzpicture}
 
@@ -28,7 +27,7 @@ ylabel={$k_1$},
 axis background/.style={fill=white},
 xmajorgrids,
 ymajorgrids,
-grid style={mycolor2, opacity=0.15},
+legend style={legend cell align=left, align=left, draw=black, fill=white},
 axis background/.style={fill=white},
 axis line style={black},
 tick style={black},
@@ -37,7 +36,7 @@ label style={font=\large,text=black},
 title style={font=\Large,text=black},
 legend style={font=\large,fill=white,draw=black,text=black}
 ]
-\addplot [color=mycolor1, line width=1.2pt, forget plot]
+\addplot [color=mycolor1, line width=1.2pt]
   table[row sep=crcr]{%
 0.000112175	-0.6\\
 0.08018776	-0.6\\
@@ -1041,11 +1040,15 @@ legend style={font=\large,fill=white,draw=black,text=black}
 79.920119247	-1.34123776040391\\
 79.990067791	-1.34123776040391\\
 };
-\addplot [color=mycolor1, dashed, line width=1.2pt, forget plot]
+\addlegendentry{$k_1$}
+
+\addplot [color=mycolor1, dashed, line width=1.2pt]
   table[row sep=crcr]{%
 0.000112175	-1.3\\
 79.990067791	-1.3\\
 };
+\addlegendentry{$k_1^*$}
+
 \end{axis}
 
 \begin{axis}[%
@@ -1069,7 +1072,7 @@ ylabel={$k_0$},
 axis background/.style={fill=white},
 xmajorgrids,
 ymajorgrids,
-grid style={mycolor2, opacity=0.15},
+legend style={legend cell align=left, align=left, draw=black, fill=white},
 axis background/.style={fill=white},
 axis line style={black},
 tick style={black},
@@ -1078,7 +1081,7 @@ label style={font=\large,text=black},
 title style={font=\Large,text=black},
 legend style={font=\large,fill=white,draw=black,text=black}
 ]
-\addplot [color=mycolor3, line width=1.2pt, forget plot]
+\addplot [color=mycolor2, line width=1.2pt]
   table[row sep=crcr]{%
 0.000112175	0.2\\
 0.08018776	0.2\\
@@ -2082,7 +2085,9 @@ legend style={font=\large,fill=white,draw=black,text=black}
 79.920119247	0.00670295809891339\\
 79.990067791	0.00670295809891339\\
 };
-\addplot[const plot, color=mycolor3, dashed, forget plot] table[row sep=crcr] {%
+\addlegendentry{$k_0$}
+
+\addplot[const plot, color=mycolor2, dashed] table[row sep=crcr] {%
 0.000112175	0.29\\
 0.08018776	0.29\\
 0.159956934	0.29\\
@@ -3085,5 +3090,7 @@ legend style={font=\large,fill=white,draw=black,text=black}
 79.920119247	0\\
 79.990067791	0\\
 };
+\addlegendentry{$k_0^*$}
+
 \end{axis}
 \end{tikzpicture}%
